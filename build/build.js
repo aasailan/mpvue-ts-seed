@@ -1,4 +1,4 @@
-require('./check-versions')()
+// require('./check-versions')()
 
 process.env.NODE_ENV = 'production'
 
@@ -7,14 +7,17 @@ var rm = require('rimraf')
 var path = require('path')
 var chalk = require('chalk')
 var webpack = require('webpack')
-var config = require('../config')
+
+var config = require('../config/prod')
 var webpackConfig = require('./webpack.prod.conf')
 
 var spinner = ora('building for production...')
 spinner.start()
 
-rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
+// 删除原来的编译产物
+rm(path.join(config.assetsRoot, config.assetsSubDirectory), err => {
   if (err) throw err
+  // 开始编译
   webpack(webpackConfig, function (err, stats) {
     spinner.stop()
     if (err) throw err

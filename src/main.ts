@@ -1,8 +1,8 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator';
-import { VueConstructor } from "vue";
+import { VueConstructor } from 'vue';
 
 interface IMpVue extends VueConstructor {
-  mpType: string
+  mpType: string;
 }
 
 // 添加小程序hooks http://mpvue.com/mpvue/#_4
@@ -21,17 +21,16 @@ Component.registerHooks([
   'onReachBottom', // 页面上拉触底事件的处理函数
   'onShareAppMessage', // 用户点击右上角分享
   'onPageScroll', // 页面滚动
-  'onTabItemTap', //当前是 tab 页时， 点击 tab 时触发 （mpvue 0.0.16 支持）
-])
+  'onTabItemTap' // 当前是 tab 页时， 点击 tab 时触发 （mpvue 0.0.16 支持）
+]);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
 // 在这个地方引入是为了registerHooks先执行
-const MyApp = require('./App.vue').default as IMpVue
+const MyApp = require('./App.vue').default as IMpVue;
 
-
-
-const app = new Vue(MyApp)
-app.$mount()
+const app = new Vue(MyApp);
+app.$mount();
 
 export default {
   // 这个字段走 app.json
@@ -44,4 +43,4 @@ export default {
       navigationBarTextStyle: 'black'
     }
   }
-}
+};

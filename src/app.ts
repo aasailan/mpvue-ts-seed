@@ -1,7 +1,6 @@
-import { Vue, Component } from 'vue-property-decorator'
-const debug = require('debug')('log:App')
+import { Vue, Component } from 'vue-property-decorator';
 
-declare module "vue/types/vue" {
+declare module 'vue/types/vue' {
   interface Vue {
     $mp: any;
   }
@@ -9,26 +8,26 @@ declare module "vue/types/vue" {
 
 // 必须使用装饰器的方式来指定components
 @Component({
-  mpType: 'app', // mpvue特定
+  mpType: 'app' // mpvue特定
 }as any)
-class App extends Vue {
+export default class App extends Vue {
   // app hook
   onLaunch() {
-    let opt = this.$root.$mp.appOptions
-    debug('onLaunch', opt)
+    let opt = this.$root.$mp.appOptions;
   }
 
   onShow() {
-    debug('onShow')
+    console.log('onShow');
+    // debug('onShow');
   }
 
   onHide() {
-    debug('onHide')
+    console.log('onHide');
+    // debug('onHide');
   }
 
   mounted() { // vue hook
-    debug('mounted')
+    console.log('mounted');
+    // debug('mounted');
   }
 }
-
-export default App

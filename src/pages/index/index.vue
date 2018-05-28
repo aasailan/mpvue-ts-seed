@@ -5,7 +5,8 @@
     <card text="card component"></card>
     <comp-b text="hello2"></comp-b>
     <comp-alias text="hello3"></comp-alias>
-    <a :href="AppUrls.COUNTER" class="home">去往vuex</a>
+    <a :href="AppUrls.ADD_COUNTER" class="home">去往add counter</a>
+     <a :href="AppUrls.DEC_COUNTER" class="home">去往dec counter</a>
   </div>
 </template>
 <!--必须指定为ts-->

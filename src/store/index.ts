@@ -2,6 +2,7 @@
 // make sure to call Vue.use(Vuex) if using a module system
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { INCREMENT, DECREMENT } from '@/store/types';
 
 Vue.use(Vuex as any);
 
@@ -10,11 +11,11 @@ const store = new Vuex.Store({
     count: 0
   },
   mutations: {
-    increment: (state) => {
+    [INCREMENT]: (state) => {
       const obj = state;
       obj.count += 1;
     },
-    decrement: (state) => {
+    [DECREMENT]: (state) => {
       const obj = state;
       obj.count -= 1;
     }
